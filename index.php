@@ -71,7 +71,7 @@ echo '<?xml version="1.0" encoding="utf-8" ?>';
 		
 		<hr />
 		<a href='mailto&#58;pe&#116;e%&#55;&#50;&#64;m&#97;z&#100;%&#54;5%72m%69nd&#46;&#100;e'>peter&#64;&#109;&#97;&#122;derm&#105;nd&#46;d&#101;</a> | 
-		<a href="https://svn.toolserver.org/svnroot/mazder/replicate-sequences/">get the source</a>
+		<a href="https://github.com/MaZderMind/replicate-sequences">get the source</a>
 	</body>
 </html>
 <?php
