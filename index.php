@@ -70,7 +70,7 @@ echo '<?xml version="1.0" encoding="utf-8" ?>';
 		</div></form>
 		
 		<hr />
-		<a href='mailto&#58;pe&#116;e%&#55;&#50;&#64;m&#97;z&#100;%&#54;5%72m%69nd&#46;&#100;e'>peter&#64;&#109;&#97;&#122;derm&#105;nd&#46;d&#101;</a> | 
+		<a href='ma&#105;lto&#58;o&#115;&#109;%40mazd&#37;65rm%69nd&#37;2&#69;&#100;e'>osm&#64;mazd&#101;rmi&#110;d&#46;de</a> | 
 		<a href="https://github.com/MaZderMind/replicate-sequences">get the source</a>
 	</body>
 </html>
