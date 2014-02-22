@@ -75,7 +75,7 @@ function fetch($conf)
 	{
 		$seqPath = str_pad($seq, 9, '0', STR_PAD_LEFT);
 		$seqPath = trim(chunk_split($seqPath, 3, '/'), '/');
-		
+
 		$statefile = $conf['base'].$seqPath.'.state.txt';
 		$stateText = file_get_contents($statefile);
 		if(!is_string($stateText))
@@ -88,13 +88,13 @@ function fetch($conf)
 			printf("format error in remote statefile %s\n", $statefile);
 			exit(3);
 		}
-		
+
 		$original = array_shift($match);
 		$timestamp = vsprintf('%04u-%02u-%02u %02u:%02u:%02u', $match);
-		
+
 		if($seq % 100 == 0 || $seq == $localSeq || $seq == $remoteSeq-1)
 			printf("(%.2f%%) sequenceNumber=%s timestamp=%s\n", ($seq - $localSeq) / $seqRange * 100, $seq, $timestamp);
-		
+
 		$stm->execute(array(
 			'sequenceNumber' => $seq, 
 			'timestamp' => $timestamp, 
