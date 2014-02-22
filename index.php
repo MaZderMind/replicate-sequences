@@ -116,7 +116,7 @@ $statefile = $conf['base'].$seqPath.'.state.txt';
 header('Content-Disposition: inline; filename="state.txt"');
 header('Content-Type: text/plain');
 echo "#original-source: $statefile\n";
-echo "#generated-by: http://toolserver.org/~mazder/replicate-sequences/\n";
+echo "#generated-by: http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]."\n";
 echo file_get_contents($statefile);
 
 ?>
