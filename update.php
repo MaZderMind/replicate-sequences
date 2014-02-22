@@ -2,6 +2,9 @@
 
 include('conf.php');
 
+if(!$conf['abuse'] || $conf['abuse'] == 'your@email.here')
+	die('you MUST configure an abuse-email');
+
 fetch($conf + array(
 	'table' => 'minute_replicate',
 	'base' => 'http://planet.osm.org/replication/minute/',
@@ -28,10 +31,16 @@ function fetch($conf)
 	$db = new PDO('mysql:host='.$conf['host'].';dbname='.$conf['db'], $conf['user'], $conf['password']);
 	$stm = $db->prepare('INSERT IGNORE INTO '.$conf['table'].' (sequenceNumber, timestamp) VALUES (:sequenceNumber, :timestamp)');
 
+	$ctx = stream_context_create(array(
+		'http' => array(
+			'user_agent' => "updater for replicate-sequence Tool (https://github.com/MaZderMind/replicate-sequences) on ".php_uname('n').", contact ".$conf['abuse']." in case of abuse or problems",
+		),
+	));
+
 	$statefile = $conf['base'].'state.txt';
 	printf("fetching current remote statefile %s\n", $statefile);
 
-	$stateText = file_get_contents($statefile);
+	$stateText = file_get_contents($statefile, false, $ctx);
 	if(!is_string($stateText))
 	{
 		printf("error fetching remote statefile\n");
