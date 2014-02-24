@@ -42,16 +42,16 @@ echo '<?xml version="1.0" encoding="utf-8" ?>';
 				<input type="text" id="m" name="m" value="<?=date('m')?>" size="2" />
 				
 				<label for="Y">Day: </label>
-				<input type="text" id="d" name="d" value="<?=date('d')-1?>" size="2" />
+				<input type="text" id="d" name="d" value="<?=date('d')?>" size="2" />
 				
 				<label for="Y">Hour: </label>
-				<input type="text" id="H" name="H" value="08" size="2" />
+				<input type="text" id="H" name="H" value="<?=date('H')?>" size="2" />
 				
 				<label for="Y">Minute: </label>
-				<input type="text" id="i" name="i" value="00" size="2" />
+				<input type="text" id="i" name="i" value="<?=date('i')?>" size="2" />
 				
 				<label for="Y">Second: </label>
-				<input type="text" id="s" name="s" value="00" size="2" />
+				<input type="text" id="s" name="s" value="<?=date('s')?>" size="2" />
 			</fieldset>
 			
 			<fieldset>
