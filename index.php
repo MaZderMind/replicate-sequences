@@ -80,7 +80,7 @@ exit;
 
 include('conf.php');
 
-switch($_GET['stream'])
+switch(@$_GET['stream'])
 {
 	case 'hour':
 		$conf['table'] = 'hour_replicate';
