@@ -25,6 +25,18 @@ Setting up your own copy of this service is quite easy. Check out into a PHP-Ena
 Now populate your database with `schema.sql` to get the empty tables. You could now start running `update.php` and it will download >750000 `state.txt`-files to populate your database. This would take at least one complete day. Instead, i'd suggest to also import `initial.sql.gz`, which already contains the first 750000 state-files and pre-loads your database with this information. You can then use `update.php` to stay on track.
 
 
+Running with Docker
+===================
+This tools consists of two Containers, both running the same image ([mazdermind/osm-replicate-sequenced](https://hub.docker.com/r/mazdermind/osm-replicate-sequenced/) but with different commands.
+When the Image is run with "apache2-foreground" it will serve Records from the MySQL-Database. When it is run without a command it will start fetching Sequence-Files from the OSM Repository, updating the MySQL Database.
+Both images take the following Environment-Variables:
+- *DB_HOST*: Hostname of the MySQL Database-Server
+- *DB_NAME*: Name of the Database
+- *DB_USER*: Username on the Database-Server
+- *DB_PASSWORD*: Password of the Database-User
+- *ABUSE_MAIL*: Your Contact Mail-Address
+
+
 Contact
 =======
 
