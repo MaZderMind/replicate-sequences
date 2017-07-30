@@ -10,7 +10,8 @@ $db = new PDO('mysql:host='.$conf['host'].';dbname='.$conf['db'], $conf['user'],
 printf("ok\n");
 
 printf("creating database tables if not exist\n");
-$db->exec(file_get_contents('struct.sql'));
+if($db->exec(file_get_contents('struct.sql')) === false)
+	die(print_r($db->errorInfo(), true));
 printf("ok\n");
 
 
