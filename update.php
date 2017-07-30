@@ -5,6 +5,15 @@ include('conf.php');
 if(!$conf['abuse'] || $conf['abuse'] == 'your@email.here')
 	die('you MUST configure an abuse-email');
 
+printf("connecting to database\n");
+$db = new PDO('mysql:host='.$conf['host'].';dbname='.$conf['db'], $conf['user'], $conf['password']);
+printf("ok\n");
+
+printf("creating database tables if not exist\n");
+$db->exec(file_get_contents('struct.sql'));
+printf("ok\n");
+
+
 fetch($conf + array(
 	'table' => 'minute_replicate',
 	'base' => 'http://planet.osm.org/replication/minute/',
@@ -28,7 +37,7 @@ fetch($conf + array(
 
 function fetch($conf)
 {
-	$db = new PDO('mysql:host='.$conf['host'].';dbname='.$conf['db'], $conf['user'], $conf['password']);
+	global $db;
 	$stm = $db->prepare('INSERT IGNORE INTO '.$conf['table'].' (sequenceNumber, timestamp) VALUES (:sequenceNumber, :timestamp)');
 
 	$ctx = stream_context_create(array(
