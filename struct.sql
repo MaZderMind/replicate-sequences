@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `minute_replicate` (
-  `sequenceNumber` int(10) unsigned DEFAULT NULL,
+  `sequenceNumber` int(10) unsigned NOT NULL,
   `timestamp` datetime DEFAULT NULL,
   PRIMARY KEY `pk_seq` (sequenceNumber),
   KEY `idx_timestamp` (`timestamp`)
@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `minute_replicate` (
 
 
 CREATE TABLE IF NOT EXISTS `hour_replicate` (
-  `sequenceNumber` int(10) unsigned DEFAULT NULL,
+  `sequenceNumber` int(10) unsigned NOT NULL,
   `timestamp` datetime DEFAULT NULL,
   PRIMARY KEY `pk_seq` (sequenceNumber),
   KEY `idx_timestamp` (`timestamp`)
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `hour_replicate` (
 
 
 CREATE TABLE IF NOT EXISTS `day_replicate` (
-  `sequenceNumber` int(10) unsigned DEFAULT NULL,
+  `sequenceNumber` int(10) unsigned NOT NULL,
   `timestamp` datetime DEFAULT NULL,
   PRIMARY KEY `pk_seq` (sequenceNumber),
   KEY `idx_timestamp` (`timestamp`)
