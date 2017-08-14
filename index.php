@@ -113,10 +113,20 @@ $seqPath = trim(chunk_split($seqPath, 3, '/'), '/');
 
 $statefile = $conf['base'].$seqPath.'.state.txt';
 
+if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']) {
+	$proto = 'https';
+}
+else if(isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+	$proto = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+}
+else {
+	$proto = 'http';
+}
+
 header('Content-Disposition: inline; filename="state.txt"');
 header('Content-Type: text/plain');
 echo "#original-source: $statefile\n";
-echo "#generated-by: ".(@$_SERVER['HTTPS'] ? 'https' : 'http')."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]."\n";
+echo "#generated-by: $proto://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]."\n";
 echo file_get_contents($statefile);
 
 ?>
