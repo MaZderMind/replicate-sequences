@@ -9,11 +9,13 @@ printf("connecting to database\n");
 $db = new PDO('mysql:host='.$conf['host'].';dbname='.$conf['db'], $conf['user'], $conf['password']);
 printf("ok\n");
 
-printf("creating database tables if not exist\n");
-if($db->exec(file_get_contents('struct.sql')) === false)
-	die(print_r($db->errorInfo(), true));
-printf("ok\n");
-
+if(!@$conf['create'] === false)
+{
+	printf("creating database tables if not exist\n");
+	if($db->exec(file_get_contents('struct.sql')) === false)
+		die(print_r($db->errorInfo(), true));
+	printf("ok\n");
+}
 
 fetch($conf + array(
 	'table' => 'minute_replicate',

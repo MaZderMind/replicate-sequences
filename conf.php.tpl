@@ -8,5 +8,8 @@ $conf = array(
 
 	// the abuse email will be part of the user-agent-string used to request the statefiles. put in your mail-adresse, so server admins can contact you if something is wrong
 	'abuse' => 'your@email.here'
+
+	// try to create the tables if they're missing
+	'create' => true,
 );
 
