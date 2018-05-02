@@ -10,7 +10,7 @@ API
 
 Besides the Web-Form the tool can handle the following API-Call:
 ```
-https://osm.nazdermind.de/replicate-sequences/?2013-01-01T10:00:00Z
+https://osm.mazdermind.de/replicate-sequences/?2013-01-01T10:00:00Z
 ```
 
 This can be used to always fetch the latest state.file in conjunction with some unix-foo:
