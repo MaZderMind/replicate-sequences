@@ -15,7 +15,7 @@ https://osm.mazdermind.de/replicate-sequences/?2013-01-01T10:00:00Z
 
 This can be used to always fetch the latest state.file in conjunction with some unix-foo:
 ```
-curl "https://osm.mazdermind.de/replicate-sequences/?`date --utc "+%FT%TZ"`"
+curl "https://replicate-sequences.osm.mazdermind.de/?`date --utc "+%FT%TZ"`"
 ```
 
 Setting up you own
