@@ -15,7 +15,12 @@ https://replicate-sequencesosm.mazdermind.de?2013-01-01T10:00:00Z
 
 This can be used to always fetch the latest state.file in conjunction with some unix-foo:
 ```
-curl "https://replicate-sequences.osm.mazdermind.de/?`date --utc "+%FT%TZ"`"
+curl "https://replicate-sequences.osm.mazdermind.de/?$(date --utc "+%FT%TZ")"
+```
+
+And with even more unix-foo it can be used to fetch the right state.file for a given planet file, assuming that its modification time was preserved when downloading it ("curl" and "wget" usually do):
+```
+curl "https://replicate-sequences.osm.mazdermind.de/?$(date -u -d "@$(stat -c "%Y" planet-latest.osm.pbf)" +"%FT%TZ")"
 ```
 
 Setting up you own
