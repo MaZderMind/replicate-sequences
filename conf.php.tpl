@@ -1,4 +1,4 @@
-<?
+<?php
 
 $conf = array(
 	'host' => 'localhost',
