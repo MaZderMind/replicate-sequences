@@ -1,0 +1,28 @@
+services:
+  web:
+    image: "mazdermind/replicate-sequences:v2"
+    ports:
+      - "8080:80"
+    environment:
+      - MODE=web
+      - DB_HOST=db
+      - DB_NAME=osm
+      - DB_USER=osm
+      - DB_PASSWORD=insecure-password
+      - ABUSE_MAIL=fill-in-your-mail@example.com
+  updater:
+    image: "mazdermind/replicate-sequences:v2"
+    environment:
+      - MODE=updater
+      - DB_HOST=db
+      - DB_NAME=osm
+      - DB_USER=osm
+      - DB_PASSWORD=insecure-password
+      - ABUSE_MAIL=fill-in-your-mail@example.com
+  db:
+    image: "mysql:8.3"
+    environment:
+      - MYSQL_DATABASE=osm
+      - MYSQL_USER=osm
+      - MYSQL_PASSWORD=insecure-password
+      - MYSQL_ROOT_PASSWORD=olso-insecure-password
