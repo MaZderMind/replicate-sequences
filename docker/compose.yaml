@@ -1,6 +1,6 @@
 services:
   web:
-    image: "mazdermind/replicate-sequences:v2"
+    image: "mazdermind/replicate-sequences:latest"
     ports:
       - "8080:80"
     environment:
@@ -11,7 +11,7 @@ services:
       - DB_PASSWORD=insecure-password
       - ABUSE_MAIL=fill-in-your-mail@example.com
   updater:
-    image: "mazdermind/replicate-sequences:v2"
+    image: "mazdermind/replicate-sequences:latest"
     environment:
       - MODE=updater
       - DB_HOST=db
